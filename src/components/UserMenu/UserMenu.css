@@ -1,0 +1,17 @@
+.container__menu {
+  display: flex;
+  align-items: center;
+}
+.avatar__menu {
+  margin-right: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #3700b3;
+  background-color: #3700b3;
+}
+.name__menu {
+  font-family: Roboto;
+  font-weight: 700;
+  margin-right: 12px;
+}

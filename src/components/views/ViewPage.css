@@ -1,0 +1,30 @@
+.container__home {
+  min-height: 'calc(100vh - 50px)';
+  display: 'flex';
+  align-items: 'center';
+  justify-content: 'center';
+}
+
+.title__home {
+  font-weight: 500px;
+  font-size: 48px;
+  text-align: 'center';
+}
+
+.form__regiser {
+  width: 320px;
+}
+.label__regiser {
+  display: 'flex';
+  flex-direction: 'column';
+  margin-bottom: 15px;
+}
+
+.form__login {
+  width: 320px;
+}
+.label__login {
+  display: 'flex';
+  flex-direction: 'column';
+  margin-bottom: 15px;
+}
