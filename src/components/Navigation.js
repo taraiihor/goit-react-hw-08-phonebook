@@ -7,11 +7,11 @@ function Navigation() {
   const isLoading = useSelector(getIsAuthenticated);
   return (
     <nav>
-      <NavLink to="/" exact className="navLink">
+      <NavLink className="navLink" to="/" exact>
         Home
       </NavLink>
       {isLoading && (
-        <NavLink to="/contacts" exact className="navLink">
+        <NavLink className="navLink" to="/contacts" exact>
           Contacts
         </NavLink>
       )}

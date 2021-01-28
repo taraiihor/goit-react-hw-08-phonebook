@@ -23,11 +23,11 @@ function App() {
         <PublicRoute exact path="/">
           <HomeView />
         </PublicRoute>
-        <PublicRoute path="/register" restricted redirectTo="/contacts">
+        <PublicRoute path="/register" redirectTo="/contacts" restricted>
           <RegisterView />
         </PublicRoute>
 
-        <PublicRoute path="/login" restricted redirectTo="/contacts">
+        <PublicRoute path="/login" redirectTo="/contacts" restricted>
           <LoginView />
         </PublicRoute>
 
