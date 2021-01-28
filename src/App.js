@@ -1,15 +1,9 @@
-// import ContactsList from './components/Contact/';
-// import ContactForm from './components/Form/';
-// import Filter from './components/Filter/';
 import './App.css';
 import { Switch } from 'react-router-dom';
 import AppBar from './components/AppBar';
-// import HomePage from './components/views/HomePage';
 import RegisterView from './components/views/RegisterView';
 import LoginView from './components/views/LoginView';
 import ContactView from './components/views/ContactView';
-// import { authOperations } from './redux/auth';
-// import { connect } from 'react-redux';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import HomeView from './components/views/HomePage';
@@ -36,9 +30,7 @@ function App() {
         <PublicRoute path="/login" restricted redirectTo="/contacts">
           <LoginView />
         </PublicRoute>
-        {/* <Route path="/register" component={RegisterView} /> */}
-        {/* <Route path="/login" component={LoginView} /> */}
-        {/* <Route path="/contacts" component={ContactView} /> */}
+
         <PrivateRoute path="/contacts" redirectTo="/login">
           <ContactView />
         </PrivateRoute>

@@ -1,30 +1,12 @@
-.container__home {
-  min-height: 'calc(100vh - 50px)';
-  display: 'flex';
-  align-items: 'center';
-  justify-content: 'center';
+.avatar__class {
+  display: inline-flex;
 }
 
-.title__home {
-  font-weight: 500px;
-  font-size: 48px;
-  text-align: 'center';
+.container__login {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
-
-.form__regiser {
-  width: 320px;
-}
-.label__regiser {
-  display: 'flex';
-  flex-direction: 'column';
-  margin-bottom: 15px;
-}
-
-.form__login {
-  width: 320px;
-}
-.label__login {
-  display: 'flex';
-  flex-direction: 'column';
-  margin-bottom: 15px;
+.input_reg {
+  padding-top: 16px;
+  padding-bottom: 8px;
 }

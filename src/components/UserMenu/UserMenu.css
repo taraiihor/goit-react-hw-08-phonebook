@@ -1,6 +1,7 @@
 .container__menu {
   display: flex;
   align-items: center;
+  margin-right: 16px;
 }
 .avatar__menu {
   margin-right: 4px;
@@ -11,7 +12,7 @@
   background-color: #3700b3;
 }
 .name__menu {
-  font-family: Roboto;
+  font-family: 'Roboto';
   font-weight: 700;
   margin-right: 12px;
 }

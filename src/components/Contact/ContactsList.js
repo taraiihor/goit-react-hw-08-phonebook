@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../redux/contact/contact-operations';
 import './ContactsList.css';
 import { getVisibleContact } from '../redux/contact/contact-selector';
-import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 
@@ -13,21 +12,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    margin: theme.spacing(1),
-    width: '100%',
-  },
-}));
-
 function ContactsList() {
-  const classes = useStyles();
-
   const contacts = useSelector(getVisibleContact);
   const dispatch = useDispatch();
 
@@ -37,7 +22,7 @@ function ContactsList() {
     <>
       {!contacts.length && <div>Немає жодного контакту</div>}
 
-      <List className={classes.root}>
+      <List>
         {contacts.map(({ id, name, number }) => (
           <ListItem key={id}>
             <ListItemAvatar>
@@ -49,7 +34,6 @@ function ContactsList() {
               variant="contained"
               color="primary"
               size="small"
-              className={classes.button}
               startIcon={<DeleteIcon />}
               onClick={() => onDeleteContact(id)}
             >

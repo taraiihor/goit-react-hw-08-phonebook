@@ -3,25 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getContact } from '../redux/contact/contact-selector';
 import { addContact } from '../redux/contact/contact-operations';
 import './ContactForm.css';
-import { makeStyles } from '@material-ui/core/styles';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
 function ContactForm() {
-  const classes = useStyles();
-
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContact);
@@ -60,43 +46,47 @@ function ContactForm() {
   return (
     <>
       <form
-        className={classes.root}
         noValidate
         autoComplete="off"
         onSubmit={handleSubmit}
+        className="item__form"
       >
-        <TextField
-          size="small"
-          label="Name"
-          variant="outlined"
-          type="text"
-          name="name"
-          placeholder="Jony Dep"
-          value={name}
-          onChange={handleChange}
-        />
+        <div className="item__input">
+          <TextField
+            size="small"
+            label="Name"
+            variant="outlined"
+            type="text"
+            name="name"
+            placeholder="Jony Dep"
+            value={name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="item__input">
+          <TextField
+            size="small"
+            label="Phone"
+            variant="outlined"
+            type="text"
+            name="number"
+            placeholder="111-11-11"
+            value={number}
+            onChange={handleChange}
+          />
+        </div>
 
-        <TextField
-          size="small"
-          label="Phone"
-          variant="outlined"
-          type="text"
-          name="number"
-          placeholder="111-11-11"
-          value={number}
-          onChange={handleChange}
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          size="small"
-          type="submit"
-          disabled={name === '' || number === ''}
-          className={classes.button}
-          startIcon={<SaveIcon />}
-        >
-          Save
-        </Button>
+        <div className="item__input">
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            disabled={name === '' || number === ''}
+            startIcon={<SaveIcon />}
+          >
+            Save
+          </Button>
+        </div>
       </form>
     </>
   );

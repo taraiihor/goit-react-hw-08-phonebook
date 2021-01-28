@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.heder__styles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2a363b;
+}
+.navLink {
+  font-size: 18px;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 400;
+  color: #2a363b;
+  font-family: 'Roboto';
+}
+.navLink.active {
+  color: #3700b3;
+}

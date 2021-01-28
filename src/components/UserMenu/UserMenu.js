@@ -4,16 +4,8 @@ import { getUserName } from '../redux/auth/auth-selectors';
 import { logOut } from '../redux/auth/auth-operations';
 import './UserMenu.css';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
 function UserMenu() {
-  const classes = useStyles();
-
   const name = useSelector(getUserName);
   const dispatch = useDispatch();
 
@@ -27,7 +19,6 @@ function UserMenu() {
         color="primary"
         size="small"
         type="submit"
-        className={classes.button}
         onClick={onLogOut}
       >
         Logout
