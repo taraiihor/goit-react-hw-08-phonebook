@@ -6,6 +6,7 @@ import './ContactForm.css';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import InputMask from 'react-input-mask';
 
 function ContactForm() {
   const [name, setName] = useState('');
@@ -64,16 +65,21 @@ function ContactForm() {
           />
         </div>
         <div className="item__input">
-          <TextField
+          <InputMask
+            mask="(999)999-99-99"
+            maskChar={null}
             size="small"
             label="Phone"
             variant="outlined"
             type="text"
             name="number"
-            placeholder="111-11-11"
             value={number}
             onChange={handleChange}
-          />
+          >
+            {inputProps => (
+              <TextField {...inputProps} type="tel" disableUnderline />
+            )}
+          </InputMask>
         </div>
 
         <div className="item__input">

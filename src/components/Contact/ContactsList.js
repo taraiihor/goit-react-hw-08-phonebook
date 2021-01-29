@@ -28,8 +28,8 @@ function ContactsList() {
             <ListItemAvatar>
               <Avatar></Avatar>
             </ListItemAvatar>
-            <ListItemText primary={name} />
-            <ListItemText primary={number} />
+            <ListItemText primary={name} secondary={number} />
+            {/* <ListItemText primary={number} /> */}
             <Button
               variant="contained"
               color="primary"
