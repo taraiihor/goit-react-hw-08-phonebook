@@ -1,17 +1,19 @@
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getContact } from '../redux/contact/contact-selector';
-import { addContact } from '../redux/contact/contact-operations';
-import './ContactForm.css';
-import SaveIcon from '@material-ui/icons/Save';
+import { useDispatch } from 'react-redux';
+// import { getContact } from '../redux/contact/contact-selector';
+import { updateContact } from '../redux/contact/contact-operations';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import InputMask from 'react-input-mask';
 
-function ContactForm() {
+function ContactEdit() {
+  const { contactId } = useParams();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const contacts = useSelector(getContact);
+  const location = useLocation();
+  const history = useHistory();
   const dispatch = useDispatch();
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -27,22 +29,12 @@ function ContactForm() {
     }
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    const auditContact = contacts.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase(),
-    );
-    if (auditContact) {
-      alert(`Контакт ${name} з таким ім’ям вже є.`);
-      reset();
-      return;
-    }
-    dispatch(addContact({ name, number }));
-    reset();
-  };
-  const reset = () => {
-    setName('');
-    setNumber('');
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    dispatch(updateContact({ contactId, name, number }));
+    history.push(location?.state?.from ?? '/');
+    return;
   };
   return (
     <>
@@ -50,9 +42,9 @@ function ContactForm() {
         noValidate
         autoComplete="off"
         onSubmit={handleSubmit}
-        className="item__form"
+        className="item__form-edit"
       >
-        <div className="item__input">
+        <div className="item__input-edit">
           <TextField
             size="small"
             label="Name"
@@ -64,7 +56,7 @@ function ContactForm() {
             onChange={handleChange}
           />
         </div>
-        <div className="item__input">
+        <div className="item__input-edit">
           <InputMask
             mask="(999)999-99-99"
             maskChar={null}
@@ -81,7 +73,6 @@ function ContactForm() {
                 {...inputProps}
                 type=" number "
                 variant="outlined"
-                // InputProps={{ disableUnderline: true }}
                 disableUnderline
               />
             )}
@@ -94,9 +85,8 @@ function ContactForm() {
             color="primary"
             type="submit"
             disabled={name === '' || number === ''}
-            startIcon={<SaveIcon />}
           >
-            Save
+            Update Contact
           </Button>
         </div>
       </form>
@@ -104,4 +94,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default ContactEdit;

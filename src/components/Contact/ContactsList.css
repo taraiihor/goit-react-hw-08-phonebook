@@ -3,3 +3,16 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+.item__form-edit {
+  display: block;
+  padding: 50px 0px;
+}
+.item__input-edit {
+  padding-top: 16px;
+  padding-bottom: 8px;
+}
+.button_mardg {
+  margin-right: 5px;
+  text-decoration: none;
+}

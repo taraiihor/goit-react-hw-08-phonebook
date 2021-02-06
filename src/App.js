@@ -7,6 +7,7 @@ import ContactView from './components/views/ContactView';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import HomeView from './components/views/HomePage';
+import ContactEdit from './components/Contact/ContactEdit';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from './components/redux/auth/auth-operations';
@@ -31,8 +32,11 @@ function App() {
           <LoginView />
         </PublicRoute>
 
-        <PrivateRoute path="/contacts" redirectTo="/login">
+        <PrivateRoute exact path="/contacts" redirectTo="/login">
           <ContactView />
+        </PrivateRoute>
+        <PrivateRoute path="/contacts/:contactId" redirectTo="/login">
+          <ContactEdit />
         </PrivateRoute>
       </Switch>
     </div>

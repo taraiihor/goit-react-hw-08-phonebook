@@ -11,7 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// import logger from 'redux-logger';
+import logger from 'redux-logger';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
 const middleware = [
@@ -20,7 +20,7 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  // logger,
+  logger,
 ];
 
 const authPersistConfig = {

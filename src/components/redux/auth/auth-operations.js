@@ -66,6 +66,8 @@ export const getCurrentUser = createAsyncThunk(
     }
   },
 );
+
+
 // export const register = credentials => async dispatch => {
 //   dispatch(authActions.registerRequest());
 
