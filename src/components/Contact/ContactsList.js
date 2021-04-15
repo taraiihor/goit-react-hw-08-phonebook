@@ -38,6 +38,8 @@ function ContactsList() {
               to={{
                 pathname: `/contacts/${id}`,
                 state: { from: location },
+                name: name,
+                number: number,
               }}
             >
               <Button

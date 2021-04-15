@@ -7,8 +7,8 @@ import { fetchContact } from '../redux/contact/contact-operations';
 
 function ContactView() {
   const dispatch = useDispatch();
-
-  useEffect(() => dispatch(fetchContact()), [dispatch]); // dispatch як залежність.
+  // eslint-disable-next-line
+  useEffect(() => dispatch(fetchContact()), []); // dispatch як залежність.
   return (
     <>
       <ContactForm />

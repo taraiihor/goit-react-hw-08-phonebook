@@ -1,7 +1,6 @@
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { getContact } from '../redux/contact/contact-selector';
 import { updateContact } from '../redux/contact/contact-operations';
 
 import Button from '@material-ui/core/Button';
@@ -10,9 +9,9 @@ import InputMask from 'react-input-mask';
 
 function ContactEdit() {
   const { contactId } = useParams();
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
   const location = useLocation();
+  const [name, setName] = useState(location.name);
+  const [number, setNumber] = useState(location.number);
   const history = useHistory();
   const dispatch = useDispatch();
   const handleChange = ({ target }) => {
@@ -73,7 +72,7 @@ function ContactEdit() {
                 {...inputProps}
                 type=" number "
                 variant="outlined"
-                disableUnderline
+                // disableUnderline
               />
             )}
           </InputMask>
